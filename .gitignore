@@ -1,0 +1,6 @@
+﻿################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
+################################################################################
+
+/ChangeFeedCosmosDB/obj
+/.vs/ChangeFeedsCosmosDB/v15/Server/sqlite3

@@ -37,9 +37,16 @@ namespace ChangeFeedCosmosDB
             {
                 foreach(var doc in input)
                 {
-                    JObject incommingProvider = JsonConvert.DeserializeObject<JObject>(doc.ToString());
-                    var outputProvider = new AssignmentProvider(incommingProvider);
-                    var result = apiDriver.PostAssignmentProvider(outputProvider);
+                    try
+                    {
+                        JObject incommingProvider = JsonConvert.DeserializeObject<JObject>(doc.ToString());
+                        var outputProvider = new AssignmentProvider(incommingProvider);
+                        var result = apiDriver.PostAssignmentProvider(outputProvider);
+                    }
+                    catch (Exception e)
+                    {
+                        log.LogError(e.Message);
+                    }
                 }           
             }
         }
